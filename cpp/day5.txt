@@ -1,0 +1,2 @@
+I can't be bothered to make C++ templates work with this.
+Just have a look at the Python implementation.
