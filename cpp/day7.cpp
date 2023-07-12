@@ -15,7 +15,7 @@ int day7(const string &encoded) {
     
     dp[0] = 1;
 
-    for (int i = 1; i <= encoded.size(); i++) {
+    for (int i = 1; i <= (int) encoded.size(); i++) {
         if (encoded[i-1] != '0') {
             dp[i] = dp[i-1];
         }
