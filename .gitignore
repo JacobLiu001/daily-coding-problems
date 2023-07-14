@@ -7,3 +7,5 @@ screenshots/
 *.o
 
 ./build/
+
+.editorconfig
