@@ -4,14 +4,14 @@ using namespace std;
 const int CHAR_SIZE = 8;
 const int CHARSET_SIZE = 1 << CHAR_SIZE;
 
-void addch(int *chcounts, char c, int &count) {
+void addch(int *chcounts, int c, int &count) {
     if (!chcounts[c]) {
         count++;
     }
     chcounts[c]++;
 }
 
-void removech(int *chcounts, char c, int &count) {
+void removech(int *chcounts, int c, int &count) {
     chcounts[c]--;
     if (!chcounts[c]) {
         count--;
