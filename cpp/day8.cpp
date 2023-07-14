@@ -40,7 +40,7 @@ struct Node {
         val(v),
         left(l),
         right(r) {}
-    
+
     ~Node() {
         if (left) {
             left -> ~Node();
@@ -49,7 +49,7 @@ struct Node {
             right -> ~Node();
         }
     }
-    
+
     string toString() const {
         string s;
         s += "Node(";

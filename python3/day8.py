@@ -3,16 +3,16 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __repr__(self) -> str:
         return f"Node(val={repr(self.val)}, left={repr(self.left)}, right={repr(self.right)})"
 
 def count_unival_subtrees(root: Node) -> int:
     def helper(n: Node) -> tuple[int, int | None]:
-        # Returns a tuple (c, v) 
+        # Returns a tuple (c, v)
         # the number of subtrees of the tree rooted at n
         # v is None or int, which is the unival of the tree rooted at n (if it exists)
-        c = 0 
+        c = 0
         v = n.val
         if n.left:
             cl, vl = helper(n.left)

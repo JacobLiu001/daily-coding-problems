@@ -1,12 +1,12 @@
-# An XOR linked list is a more memory efficient doubly linked list. 
-# Instead of each node holding next and prev fields, 
-# it holds a field named both, which is an XOR of the next node and the previous node. 
-# Implement an XOR linked list; 
-# it has an add(element) which adds the element to the end, 
+# An XOR linked list is a more memory efficient doubly linked list.
+# Instead of each node holding next and prev fields,
+# it holds a field named both, which is an XOR of the next node and the previous node.
+# Implement an XOR linked list;
+# it has an add(element) which adds the element to the end,
 # and a get(index) which returns the node at index.
 
-# If using a language that has no pointers (such as Python), 
-# you can assume you have access to get_pointer and dereference_pointer functions 
+# If using a language that has no pointers (such as Python),
+# you can assume you have access to get_pointer and dereference_pointer functions
 # that converts between nodes and memory addresses.
 
 from typing import NewType
@@ -20,7 +20,7 @@ class XorLinkedListElement:
         self.payload = payload
         self.both = both
         XorLinkedListElement.mapper[id(self)] = self
-    
+
     def __repr__(self) -> str:
         return f"XorLinkedListElement(payload = {self.payload}, both = {self.both})"
 
@@ -36,7 +36,7 @@ class XorLinkedList:
         self.head: Ptr = NULL
         self.end: Ptr = NULL
         self.length: int = 0
-    
+
     def add(self, payload):
         newNode = XorLinkedListElement(payload, self.end)
         newPtr = get_pointer(newNode)
@@ -46,7 +46,7 @@ class XorLinkedList:
             dereference_pointer(self.end).both ^= newPtr
         self.end = newPtr
         self.length += 1
-    
+
     def __iter__(self):
         prev: Ptr = NULL
         cur: Ptr = self.head
@@ -54,11 +54,11 @@ class XorLinkedList:
         while cur != NULL:
             yield dereference_pointer(cur).payload
             cur, prev = dereference_pointer(cur).both ^ prev, cur
-    
+
     def get(self, index: int) -> XorLinkedListElement:
         # In production code you would raise IndexError
         assert index >= 0 and index < self.length, "Index out of range"
-        
+
         prev: Ptr = NULL
         cur: Ptr = self.head
 
@@ -76,7 +76,7 @@ def main():
     l.add(30)
     for x in l:
         print(x)
-    
+
     print(l.get(1))
 
 

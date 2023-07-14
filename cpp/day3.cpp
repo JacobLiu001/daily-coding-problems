@@ -52,7 +52,7 @@ struct Node {
         );
     }
 
-    static Node* inorderToTree(vector<int> ids, 
+    static Node* inorderToTree(vector<int> ids,
         vector<int>::iterator s, vector<int>::iterator e) {
         if (s >= e) {
             return NULL;
@@ -85,7 +85,7 @@ struct Node {
         val(v),
         left(l),
         right(r) {}
-    
+
     ~Node() {
         if (left) {
             left -> ~Node();
@@ -135,8 +135,8 @@ struct Node {
     }
 
     string toString() const {
-        return string("Node(") 
-            + val + ", " 
+        return string("Node(")
+            + val + ", "
             + (left ? left -> toString() : "NULL") + ", "
             + (right ? right -> toString() : "NULL") + ")";
     }

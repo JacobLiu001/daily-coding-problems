@@ -1,5 +1,5 @@
 # Given the root to a binary tree, implement:
-# - serialize(root), which serializes the tree into a string, 
+# - serialize(root), which serializes the tree into a string,
 # - and deserialize(s), which deserializes the string back into the tree.
 
 # For example, given the following Node class
@@ -22,7 +22,7 @@ class Node:
         self.val = val
         self.left: Node | None = left
         self.right: Node | None = right
-    
+
     def __repr__(self) -> str:
         return f"Node({repr(self.val)}, {repr(self.left)}, {repr(self.right)})"
 

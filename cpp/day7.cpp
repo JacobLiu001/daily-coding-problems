@@ -12,7 +12,7 @@ bool in_range(string s) {
 
 int day7(const string &encoded) {
     vector<int> dp(encoded.size() + 1, 0);
-    
+
     dp[0] = 1;
 
     for (int i = 1; i <= (int) encoded.size(); i++) {

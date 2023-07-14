@@ -11,7 +11,7 @@ struct Node {
 
 // test if bit_cast is defined, if so, use it.
 // apparently the C standard ensures that uintptr_t and void* are the same size.
-#if __cpp_lib_bit_cast >= 201806L 
+#if __cpp_lib_bit_cast >= 201806L
 uintptr_t toInt(Node const *x) {
     return bit_cast<uintptr_t>(x);
 }
