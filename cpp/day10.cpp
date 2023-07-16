@@ -2,6 +2,7 @@
 #include "includes/universal.h"
 using namespace std;
 
+// or make it a static local variable of the function
 vector<thread> threads;
 
 template<typename F>
