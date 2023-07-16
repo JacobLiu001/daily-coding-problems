@@ -2,7 +2,7 @@
 #include "includes/universal.h"
 using namespace std;
 
-int day8(const vector<int> &v) {
+int day9(const vector<int> &v) {
     int ans_with_last = 0;
     int ans_without_last = 0;
     for (auto x: v) {
@@ -20,7 +20,7 @@ int main() {
         for (int i = 0; i < n; i++) {
             cin >> v[i];
         }
-        cout << day8(v) << endl;
+        cout << day9(v) << endl;
     }
     return 0;
 }
