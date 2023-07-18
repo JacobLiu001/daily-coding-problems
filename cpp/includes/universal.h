@@ -13,6 +13,10 @@ using ull = unsigned long long;
 // vector output
 template<typename T>
 std::ostream& operator << (std::ostream &os, const std::vector<T> &v) {
+    if (v.size() == 0) {
+        os << "[]";
+        return os;
+    }
     os << "[";
     for (size_t i = 0; i < v.size() - 1; i++) {
         os << v[i] << ", ";
