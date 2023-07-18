@@ -24,7 +24,7 @@ int day17(const vector<string> &s) {
     vector<string> cwdPath;
     for (auto &x: s) {
         int cntTab = x.find_first_not_of('\t');
-        while (cwdDepth > cntTab) { // yes this is devious, but it's fun!
+        while (cwdDepth > cntTab) {
             // cd .. until we're at the right level
             cwdDepth--;
             cwdLen -= cwdPath.back().size() + 1;
