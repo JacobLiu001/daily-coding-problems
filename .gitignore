@@ -9,3 +9,5 @@ screenshots/
 ./build/
 
 .editorconfig
+
+local_tests/
