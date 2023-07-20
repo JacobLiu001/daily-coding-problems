@@ -10,24 +10,24 @@ int day19(vector<vector<int>> mat) {
     // with the i-th house being painted as colour j.
 
     // dp[i][j] = mat[i][j] + min{dp[i-1][k]} (k != j)
-    vector<vector<int>> dp(N + 1, vector<int>(K, INF));
+    // We use the optimization that since we only use the previous 1 row,
+    // we can discard older results and alternate between only two rows.
+    vector<vector<int>> dp(2, vector<int>(K, 0));
     fill(dp[0].begin(), dp[0].end(), 0);
     for (int i = 1; i <= N; i++) {
-        // TODO: since we only use the current row and the previous
-        // we can use a rolling array (i.e., discard older rows).
         for (int j = 0; j < K; j++) {
-            dp[i][j] = mat[i-1][j];
+            dp[i & 1][j] = mat[(i & 1) ^ 1][j];
             int best = INF;
             for (int k = 0; k < K; k++) {
                 if (k == j) {
                     continue;
                 }
-                best = min(dp[i-1][k], best);
+                best = min(dp[(i & 1) ^ 1][k], best);
             }
-            dp[i][j] += best;
+            dp[i & 1][j] += best;
         }
     }
-    return *min_element(dp.back().begin(), dp.back().end());
+    return *min_element(dp[N & 1].begin(), dp[N & 1].end());
 }
 
 
