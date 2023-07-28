@@ -1,5 +1,6 @@
 BUILD_DIR := ./build/
 SRC_DIR := ./cpp/
+CXXFLAGS = -std=c++20 -pedantic -Wall -Wextra -Wno-sign-compare
 
 objects := $(shell find ${SRC_DIR} -type f -iname '*.cpp' | sed 's/.cpp//g')
 
