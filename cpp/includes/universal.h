@@ -24,3 +24,18 @@ std::ostream& operator << (std::ostream &os, const std::vector<T> &v) {
     os << v.back() << "]";
     return os;
 }
+
+// set output
+template<typename T>
+std::ostream& operator << (std::ostream &os, const std::set<T> &v) {
+    if (v.size() == 0) {
+        os << "{}";
+        return os;
+    }
+    os << "{";
+    for (auto x: v) {
+        os << x << ", ";
+    }
+    os << "}";
+    return os;
+}
