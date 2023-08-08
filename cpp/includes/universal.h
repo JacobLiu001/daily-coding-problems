@@ -3,7 +3,7 @@
 
 // Provided as is, with no warranty.
 
-// Thise is extremely bad as it populates the std namespace
+// This is extremely bad as it populates the std namespace
 // with a lot of useless symbols but since this is just
 // some quick-and-dirty algo practice, it does not matter
 #include <bits/stdc++.h>
