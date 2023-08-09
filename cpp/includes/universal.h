@@ -32,10 +32,14 @@ std::ostream& operator << (std::ostream &os, const std::set<T> &v) {
         os << "{}";
         return os;
     }
-    os << "{";
+    std::stringstream ss;
+    ss << "{";
     for (auto x: v) {
-        os << x << ", ";
+        ss << x << ", ";
     }
-    os << "}";
+    ss << "}";
+    std::string s = ss.str();
+    s.erase(s.size() - 3, 2);
+    os << s;
     return os;
 }
