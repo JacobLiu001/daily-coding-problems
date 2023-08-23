@@ -10,6 +10,12 @@
 
 using ull = unsigned long long;
 
+template<typename T1, typename T2>
+std::ostream& operator << (std::ostream &os, const std::pair<T1, T2> &p) {
+    os << "(" << p.first << ", " << p.second << ")";
+    return os;
+}
+
 // vector output
 template<typename T>
 std::ostream& operator << (std::ostream &os, const std::vector<T> &v) {
@@ -22,6 +28,38 @@ std::ostream& operator << (std::ostream &os, const std::vector<T> &v) {
         os << v[i] << ", ";
     }
     os << v.back() << "]";
+    return os;
+}
+
+template<typename T>
+std::ostream& operator << (std::ostream &os, const std::list<T> &l) {
+    if (l.size() == 0) {
+        os << "[]";
+        return os;
+    }
+    os << "[";
+    int n = l.size() - 1;
+    auto it = l.begin();
+    for (int i = 0; i < n; i++) {
+        os << *(it++) << " <-> ";
+    }
+    os << *it << "]";
+    return os;
+}
+
+template<typename T>
+std::ostream& operator << (std::ostream &os, const std::forward_list<T> &l) {
+    if (l.size() == 0) {
+        os << "[]";
+        return os;
+    }
+    os << "[";
+    int n = l.size() - 1;
+    auto it = l.begin();
+    for (int i = 0; i < n; i++) {
+        os << *(it++) << " -> ";
+    }
+    os << *it << "]";
     return os;
 }
 
