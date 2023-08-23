@@ -6,7 +6,7 @@ screenshots/
 *.exe
 *.o
 
-./build/
+build/
 
 .editorconfig
 
